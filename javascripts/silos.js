@@ -1,10 +1,22 @@
 var Silo = Backbone.Model.extend({
   defaults: {
-    health: 100
+    health: 100,
+    missiles: [],
+    location: {
+      longitude: null,
+      lattitude: null
+    }
   },
   initialize: function(){
-    this.view = new SiloView({
-      model: this
+    self = this
+    self.view = new SiloView({
+      model: self
+    });
+    _.times(4, function(){
+      newMissile = new Missile({
+        silo: self
+      });
+      self.attributes.missiles.push(newMissile);
     });
   }
 });
