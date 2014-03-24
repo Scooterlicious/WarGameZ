@@ -1,3 +1,9 @@
 body {
-  
+  background: -webkit-radial-gradient(#000055 0%, #000000 100%)
 }
+
+/*.datamap path {
+  -moz-box-shadow:    0px 0px 15px #0345a8;
+  -webkit-box-shadow: 0px 0px 15px #0345a8;
+  box-shadow: 0px 0px 15px #0345a8;
+}*/

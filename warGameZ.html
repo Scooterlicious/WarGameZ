@@ -24,10 +24,17 @@
      
      <script>
 
-      // Returns the latitude and longitude of where the mouse is clicked
-      d3.select("#container1").on("mousedown.log",function(){
-                                                            console.log(map.projection.invert(d3.mouse(this)))
-                                                            })
+
+
+      // $(window).click(function(e){
+      //                             if (e.target == ) 
+      //                             console.log("Legitimate Target")
+      //                             })
+
+      $(window).click(function(e){
+                                  var selected_item = jQuery.parseJSON(e.target.attributes['data-info'].value);;
+                                  console.log(selected_item.name);
+                                  })
 
 
        //basic map config with custom fills, mercator projection
@@ -38,8 +45,8 @@
         
         fills: {
           defaultFill: '#0c0b1a',
-          nato: 'navy',
-          warsaw: 'darkred'
+          nato: '#002066',
+          warsaw: '#710409'
         },
         
         data: {
@@ -59,6 +66,8 @@
           NOR: {fillKey: 'nato' },
           PRT: {fillKey: 'nato' },
           TUR: {fillKey: 'nato' },
+          TUR: {fillKey: 'nato' },
+          ESP: {fillKey: 'nato' },
           RUS: {fillKey: 'warsaw' },     
           ALB: {fillKey: 'warsaw' },
           BGR: {fillKey: 'warsaw' },
@@ -110,15 +119,15 @@
       ], {strokeWidth: 2});
        
       
-       //bubbles, custom popup on hover template
+    //bubbles, custom popup on hover template
      map.bubbles([
-       {name: 'Hot', latitude: 21.32, longitude: 5.32, radius: 10, fillKey: 'gt50'},
-       {name: 'Chilly', latitude: -25.32, longitude: 120.32, radius: 18, fillKey: 'lt50'},
-       {name: 'Hot again', latitude: 21.32, longitude: -84.32, radius: 8, fillKey: 'gt50'},
+       {name: 'Missile Silo', latitude: 21.32, longitude: 5.32, radius: 10, fillKey: 'gt50'},
+       {name: 'Missile Silo', latitude: -25.32, longitude: 120.32, radius: 18, fillKey: 'lt50'},
+       {name: 'Missile Silo', latitude: 21.32, longitude: -84.32, radius: 8, fillKey: 'gt50'},
 
      ], {
        popupTemplate: function(geo, data) {
-         return "<div class='hoverinfo'>It is " + data.name + "</div>";
+         return "<div class='hoverinfo'>" + data.name + "</div>";
        }
      });
      </script>

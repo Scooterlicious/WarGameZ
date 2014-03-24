@@ -10,15 +10,15 @@
     },
     geographyConfig: {
         dataUrl: null,
-        hideAntarctica: true,
+        hideAntarctica: false,
         borderWidth: 1,
-        borderColor: '#5454ff',
+        borderColor: '#3d3cc0',
         popupTemplate: function(geography, data) {
-          return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong></div>';
+          return '<div class="hoverinfo">' + geography.properties.name + '</div>';
         },
         popupOnHover: true,
         highlightOnHover: true,
-        highlightFillColor: '#8dfc8f',
+        highlightFillColor: '#45667f',
         highlightBorderColor: 'rgba(250, 15, 160, 0.2)',
         highlightBorderWidth: 2
     },
@@ -32,7 +32,7 @@
         fillOpacity: 0.5,
         animate: true,
         highlightOnHover: true,
-        highlightFillColor: '#317f35',
+        highlightFillColor: '#45667f',
         highlightBorderColor: 'rgba(250, 15, 160, 0.2)',
         highlightBorderWidth: 2,
         highlightFillOpacity: 0.85,
@@ -41,8 +41,8 @@
     arcConfig: {
       strokeColor: '#DD1C77',
       strokeWidth: 1,
-      arcSharpness: 1,
-      animationSpeed: 600
+      arcSharpness: 3,
+      animationSpeed: 2000
     }
   };
 
@@ -69,7 +69,7 @@
     }
     else if ( options.scope === 'world' ) {
       projection = d3.geo[options.projection]()
-        .scale((element.offsetWidth + 1) / 2 / Math.PI)
+        .scale((element.offsetWidth + 1) / 2.1 / Math.PI)
         .translate([element.offsetWidth / 2, element.offsetHeight / (options.projection === "mercator" ? 1.45 : 1.8)]);
     }
 
@@ -319,7 +319,8 @@
           .attr("y", y)
           .style("font-size", (options.fontSize || 10) + 'px')
           .style("font-family", options.fontFamily || "Verdana")
-          .style("fill", options.labelColor || "#000")
+          .style("color", "#5787ad")
+          .style("fill", options.labelColor || "#191919")
           .text( d.id );
         return "bar";
       });
