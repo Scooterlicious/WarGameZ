@@ -2,16 +2,18 @@ var Missile = Backbone.Model.extend({
   defaults: {
     completed: false
   },
-  this.view = MissileView({
-    model: this
-  })
+  initialize: function(){
+    this.view = new MissileView({
+      model: this
+    });
+  }
 });
 
 var MissileCollection = Backbone.Collection.extend({
   model: Missile
 })
 
-var MissileView({
+var MissileView = Backbone.View.extend({
   // tagName: null,
   // template: null,
   // initialize: function(){

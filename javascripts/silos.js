@@ -1,10 +1,12 @@
 var Silo = Backbone.Model.extend({
   defaults: {
-    health: 100;
+    health: 100
   },
-  this.view = SiloView({
-    model: this
-  });
+  initialize: function(){
+    this.view = new SiloView({
+      model: this
+    });
+  }
 });
 
 var SiloCollection = Backbone.Collection.extend({
