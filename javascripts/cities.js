@@ -1,10 +1,12 @@
 var City = Backbone.Model.extend({
   defaults: {
-    health: 100;
+    population: 0,
   },
-  this.view = CityView({
-    model: this
-  });
+  initialize: function(){
+    this.view = new CityView({
+      model: this
+    });
+  }
 });
 
 var CityCollection = Backbone.Collection.extend({

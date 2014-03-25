@@ -1,3 +1,5 @@
+/* DELETE THIS FILE!!! */
+
 (function() {
   var svg;
   var defaultOptions = {
