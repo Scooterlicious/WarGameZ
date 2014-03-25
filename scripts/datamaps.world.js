@@ -14,7 +14,9 @@
         borderWidth: 1,
         borderColor: '#3d3cc0',
         popupTemplate: function(geography, data) {
+
           return '<div class="hoverinfo">' + geography.properties.name + '</div>';
+ 
         },
         popupOnHover: true,
         highlightOnHover: true,
@@ -567,6 +569,7 @@
         .html(function() {
           var data = JSON.parse(element.attr('data-info'));
           //if ( !data ) return '';
+          console.log(options.popupTemplate(d, data)) //seeing what's being appended here. 
           return options.popupTemplate(d, data);
         })
         .style('left', ( position[0]) + "px");
