@@ -579,6 +579,7 @@
     if ( typeof Datamap.prototype[name] === "undefined" ) {
       Datamap.prototype[name] = function(data, options, callback, createNewLayer) {
         var layer;
+        
         if ( typeof createNewLayer === "undefined" ) {
           createNewLayer = false;
         }
